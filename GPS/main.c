@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
     char longitute[15];
     char date[7];
     char high[5];
-    char rate[7];
+    char speed[7];
     char course[7];
     int i;
     fr=fopen("//Users//a20161104584//Desktop//test//GPS//GPS170510.log","r+");
@@ -49,10 +49,10 @@ int main(int argc, const char * argv[]) {
     printf("海拔: %sm\n",high);
     fprintf(fw,"海拔: %sm\n",high);
     for(i=0;i<5;i++)
-        rate[i]=str1[i+39];
-    rate[5]='\0';
-    printf("地面速率: %s\n",rate);
-    fprintf(fw,"地面速率: %s\n",rate);
+        speed[i]=str1[i+39];
+    speed[5]='\0';
+    printf("地面速率: %s\n",speed);
+    fprintf(fw,"地面速率: %s\n",speed);
     for(i=0;i<5;i++)
         course[i]=str1[i+45];
     course[5]='\0';
