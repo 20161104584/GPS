@@ -20,19 +20,15 @@ int main(int argc, const char * argv[]) {
     char course[7];
     int i;
     fr=fopen("//Users//a20161104584//Desktop//test//GPS//GPS170510.log","r+");
-    fw=fopen("//Users//a20161104584//Desktop//test//GPS//output.txt","w+");
+    fw=fopen("//Users//a20161104584//Desktop//test//GPS//output.csv","w+");
     fscanf(fr,"%s%s",str1,str2);
     printf("结果: %s\n%s\n",str1,str2);
     for(i=0;i<6;i++)
         time[i]=str1[i+7];
     time[6]='\0';
-    printf("时间: %s\n",time);
-    fprintf(fw,"时间: %s\n",time);
     for(i=0;i<10;i++)
         lat[i]=str1[i+16];
     lat[10]='\0';
-    printf("纬度: %s\n",lat);
-    fprintf(fw,"纬度: %s\n",lat);
     for(i=0;i<11;i++)
         longitute[i]=str1[i+27];
     longitute[11]='\0';
@@ -41,8 +37,6 @@ int main(int argc, const char * argv[]) {
     for(i=0;i<6;i++)
         date[i]=str1[i+51];
     date[6]='\0';
-    printf("日期: %s\n",date);
-    fprintf(fw,"日期: %s\n",date);
     for(i=0;i<4;i++)
         high[i]=str2[i+43];
     high[4]='\0';
@@ -51,13 +45,13 @@ int main(int argc, const char * argv[]) {
     for(i=0;i<5;i++)
         speed[i]=str1[i+39];
     speed[5]='\0';
-    printf("地面速率: %s\n",speed);
-    fprintf(fw,"地面速率: %s\n",speed);
     for(i=0;i<5;i++)
         course[i]=str1[i+45];
     course[5]='\0';
-    printf("地面航向: %s\n",course);
-    fprintf(fw,"地面航向: %s\n",course);
+    printf("时间,纬度,经度,日期,海拔,地面速率,地面航向\n");
+    fprintf(fw,"时间,纬度,经度,日期,海拔,地面速率,地面航向\n");
+    printf("%s,%s,%s,%s,%s,%s,%s\n",time,lat,longitute,date,high,speed,course);
+    fprintf(fw,"%s,%s,%s,%s,%s,%s,%s\n",time,lat,longitute,date,high,speed,course);
     fclose(fr);
     return 0;
     
